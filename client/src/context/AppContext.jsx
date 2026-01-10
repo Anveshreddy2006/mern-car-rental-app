@@ -42,15 +42,11 @@ export const AppProvider = ({ children }) => {
         try {
             const { data } = await axios.get("/api/user/cars");
 
-            if (data.success) {
-                setCars(data.cars);
-            } else {
-                toast.error(data.message);
-            }
+            data.success ? setCars(data.cars) : toast.error(data.message)
         } catch (error) {
             toast.error(error.message);
         }
-    };
+    }
 
     // Function to log out the user
     const logout = () => {
@@ -67,7 +63,7 @@ export const AppProvider = ({ children }) => {
 
     // useEffect to retrieve the token from localStorage
     useEffect(() => {
-        const token = localStorage.getItem("token");
+        const token = localStorage.getItem('token');
         setToken(token);
         fetchCars()
     }, []);
@@ -75,7 +71,7 @@ export const AppProvider = ({ children }) => {
     // useEffect to fetch user data when token is available
     useEffect(() => {
         if (token) {
-            axios.defaults.headers.common["Authorization"] = `Bearer ${token}`;
+            axios.defaults.headers.common["Authorization"] = `${token}`;
             fetchUser();
         }
     }, [token]);
@@ -100,8 +96,8 @@ export const AppProvider = ({ children }) => {
         pickupDate,
         setPickupDate,
         returnDate,
-        setReturnDate,
-    };
+        setReturnDate
+    }
 
     return (
         <AppContext.Provider value={value}>
