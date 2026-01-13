@@ -58,8 +58,6 @@ const CarCard = ({ car }) => {
 
                 </div>
 
-
-
             </div>
 
 

@@ -56,11 +56,9 @@ const Sidebar = () => {
             {image && (
                 <button
                     className="absolute top-0 right-0 flex p-2 gap-1 bg-primary/10 text-primary cursor-pointer"
-                    onClick={updateImage}
-                >
+                    onClick={updateImage}>
                     Save
-                    <img
-                        src={assets.check_icon}
+                    <img src={assets.check_icon}
                         width={13}
                         alt=""
                     />

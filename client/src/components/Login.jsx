@@ -24,7 +24,7 @@ const Login = () => {
             });
 
             if (data.success) {
-                navigate("/");
+                navigate('/');
                 setToken(data.token);
                 localStorage.setItem("token", data.token);
                 setShowLogin(false);
